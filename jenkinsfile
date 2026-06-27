@@ -10,9 +10,11 @@ pipeline {
         }
 
         stage('Hello Stage 2') {
-            steps {
+            steps { 
+                '''
                 sh './scripts/stage2.sh'
                 docker ps
+                '''
             }
         }
 
