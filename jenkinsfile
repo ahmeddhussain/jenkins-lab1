@@ -24,11 +24,17 @@ pipeline {
     }
 
     post {
+        always {
+            echo 'This block runs regardless of the build outcome.'
+        }
         success {
             echo 'Pipeline completed successfully!'
         }
         failure {
             echo 'Pipeline failed!'
+        }
+        aborted {
+            echo 'Pipeline was aborted!'
         }
     }
 }
