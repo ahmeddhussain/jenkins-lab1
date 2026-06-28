@@ -1,23 +1,26 @@
 pipeline {
     agent any
 
+    parameters {
+        choice(
+            name: 'ENVIRONMENT',
+            choices: ['dev', 'stg', 'prod'],
+            description: 'Select the environment'
+        )
+    }
+
     stages {
-
-        stage('Hello Stage 1') {
+        stage('Hello World') {
             steps {
-                sh './scripts/stage1.sh'
+                echo "Hello World from trigger ${params.ENVIRONMENT}"
             }
         }
 
-        stage('Hello Stage 2') {
-            steps { 
-                sh '''
-                './scripts/stage2.sh'
-                docker ps
-                '''
+        stage('Hello Jenkins') {
+            steps {
+                echo "Hello Jenkins from ${params.ENVIRONMENT}"
             }
         }
-
     }
 
     post {
