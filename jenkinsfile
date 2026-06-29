@@ -28,7 +28,7 @@ pipeline {
             echo 'This block runs regardless of the build outcome.'
         }
         success {
-            echo 'Pipeline completed success!'
+            echo 'Pipeline completed successefully!'
         }
         failure {
             echo 'Pipeline failed!'
